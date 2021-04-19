@@ -11,7 +11,14 @@ fetch(randomUserApi)
     .then(() => generateModalDataList())
 
 let employeesData;
-
+/**
+ * generates each card
+ * @param data 
+ * With information provided from The Random User Generator API, 
+ * send a single request to the API, 
+ * and use the response data to display 12 users, 
+ * along with some basic information for each.
+ */
 function generateDataList(data) {
     employeesData = data.results;
     console.log(employeesData);
@@ -29,7 +36,13 @@ function generateDataList(data) {
         galleryContents.insertAdjacentHTML('beforeend', employeeIndexerItem);
     }
 }
-
+/**
+ * When any part of an employee item in the directory is clicked, 
+ * a modal window pops up with the following details displayed
+ * Make sure there’s a way to close the modal window
+ * The formatting of the Cell Number should be (XXX) XXX-XXXX 
+ * and the formatting of the Birthday should be MM/DD/YYYY.
+ */
 function generateModalDataList() {
     console.log(employeesData);
     for (let i = 0; i < employeesData.length; i++) {
@@ -81,6 +94,8 @@ function GetDateObject(dofbirth) {
     };
     return null; 
 }
+
+//searchBar function, but no exceeds now :/
 
 function searchBar() {
     const searchBarContainer = document.querySelector('.search-container');
